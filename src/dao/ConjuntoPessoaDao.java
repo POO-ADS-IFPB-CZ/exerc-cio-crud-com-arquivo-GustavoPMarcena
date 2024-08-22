@@ -60,8 +60,9 @@ public class ConjuntoPessoaDao {
         return false;
     }
 
-    public boolean removerPessoa(Pessoa pessoa){
-        if(pessoas.remove(pessoa)){
+    public boolean removerPessoa(String email){
+        Pessoa pessoaRemocao = buscaEmail(email);
+        if(pessoas.remove(pessoaRemocao)){
             try{
                 FileOutputStream outputStream = new FileOutputStream(arquivo);
                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
@@ -80,6 +81,16 @@ public class ConjuntoPessoaDao {
         for(Pessoa p : pessoas){
             System.out.println(p);
         }
+    }
+
+
+    public Pessoa buscaEmail(String email){
+        for(Pessoa pes : pessoas){
+            if(pes.getEmail().equals(email)) {
+                return pes;
+            }
+        }
+        return null;
     }
 
 

@@ -30,11 +30,9 @@ public class Main {
                     break;
                 case 2:
                     scanner.nextLine();
-                    System.out.println("Digite o nome da pessoa para remoção:");
-                    String nomeDelecao = scanner.nextLine();
                     System.out.println("Digite o email da pessoa para remoção:");
                     String emailDelecao = scanner.nextLine();
-                    if(cp.removerPessoa(new Pessoa(nomeDelecao, emailDelecao))){
+                    if(cp.removerPessoa(emailDelecao)){
                         System.out.println("Pessoa Removida!");
                     }else{
                         System.out.println("Erro na remoção!");
